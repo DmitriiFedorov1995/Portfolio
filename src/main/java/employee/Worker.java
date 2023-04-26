@@ -6,7 +6,6 @@ import food.Food;
 
 public class Worker {
     public void feed(Animal animal, Food food){
-       // System.out.println(animal.getClass());
         animal.eat(food);
     }
 

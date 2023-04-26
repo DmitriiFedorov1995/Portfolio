@@ -54,23 +54,6 @@ public class Zoo {
         for (Swim o:createPond()){
             o.swim();
         }
-        /*Kotik fatKot = new Kotik("Gosha", "Low", 3, 10);
-
-        Kotik kotik = new Kotik();
-        kotik.setName("Murzik");
-        kotik.setSatiety(3);
-        kotik.setWeight(5);
-        kotik.setVoice("Low");
-
-        for (String s: kotik.liveAnotherDay()){
-            System.out.println(s);
-        }
-
-        System.out.println(fatKot.getName()+" "+fatKot.getWeight());
-
-        System.out.println(compareVoice(fatKot, kotik));
-
-        System.out.println(Kotik.getCount());*/
     }
 
     public static Swim[] createPond(){
@@ -80,7 +63,4 @@ public class Zoo {
         swimmers[2] = new Fish();
         return swimmers;
     }
-   /* static boolean compareVoice(Kotik firstCat, Kotik secondCat){
-        return firstCat.getVoice().equals(secondCat.getVoice());
-    }*/
 }
