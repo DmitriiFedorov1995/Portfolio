@@ -51,7 +51,9 @@ public class Zoo {
         worker.getVoice(kotik);
 
 
-
+        for (Swim o:createPond()){
+            o.swim();
+        }
         /*Kotik fatKot = new Kotik("Gosha", "Low", 3, 10);
 
         Kotik kotik = new Kotik();
@@ -71,9 +73,11 @@ public class Zoo {
         System.out.println(Kotik.getCount());*/
     }
 
-    public static Animal[] createPond(){
-        Animal[] swimmers = new Animal[2];
-
+    public static Swim[] createPond(){
+        Swim[] swimmers = new Swim[3];
+        swimmers[0] = new Fish();
+        swimmers[1] = new Duck();
+        swimmers[2] = new Fish();
         return swimmers;
     }
    /* static boolean compareVoice(Kotik firstCat, Kotik secondCat){
