@@ -1,8 +1,17 @@
 package animals;
 
-public class Kotik {
+public class Kotik extends Carnivorous implements Voice, Run{
+    @Override
+    public String getVoice() {
+        return "Meow";
+    }
 
-    private static final int METHODS = 5;
+    @Override
+    public void run() {
+        System.out.println("бегаю быстро");
+    }
+
+    /* private static final int METHODS = 5;
     private String name;
     private int satiety;
     private int weight;
@@ -147,5 +156,5 @@ public class Kotik {
             }
         }
         return day;
-    }
+    }*/
 }
