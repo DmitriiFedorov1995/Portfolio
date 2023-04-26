@@ -1,6 +1,6 @@
 package animals;
 
-public class Duck extends Herbivore implements Fly, Swim, Voice{
+public class Duck extends Herbivore implements Fly, Swim, Voice, Run{
 
     @Override
     public String getVoice() {
@@ -9,11 +9,16 @@ public class Duck extends Herbivore implements Fly, Swim, Voice{
 
     @Override
     public void fly() {
-        System.out.println("шлепаю");
+        System.out.println("шлепаю крыльями");
     }
 
     @Override
     public void swim() {
         System.out.println("Плыву над водой");
+    }
+
+    @Override
+    public void run() {
+        System.out.println("шлепаю лапками");
     }
 }
