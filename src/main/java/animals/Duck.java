@@ -1,5 +1,7 @@
 package animals;
 
+import model.Size;
+
 public class Duck extends Herbivore implements Fly, Swim, Voice, Run{
 
     @Override
@@ -20,5 +22,14 @@ public class Duck extends Herbivore implements Fly, Swim, Voice, Run{
     @Override
     public void run() {
         System.out.println("шлепаю лапками");
+    }
+
+    @Override
+    public Size getSize() {
+        return Size.SMALL;
+    }
+
+    public Duck(String name) {
+        super(name);
     }
 }

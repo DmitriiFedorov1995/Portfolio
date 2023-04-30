@@ -2,12 +2,18 @@ package animals;
 
 import food.Food;
 import food.Meat;
+import food.WrongFoodException;
 
 public abstract class Carnivorous extends Animal{
     @Override
-    public void eat(Food food) {
-        if(!(food instanceof Meat)){
-            System.out.println("Я не ем траву!");
-        }else this.satiety += food.getEnergy();
+    public void eat(Food food) throws WrongFoodException{
+            if (!(food instanceof Meat)) {
+               throw new WrongFoodException();
+            } else
+                this.satiety += food.getEnergy();
+    }
+
+    public Carnivorous (String name){
+        super(name);
     }
 }

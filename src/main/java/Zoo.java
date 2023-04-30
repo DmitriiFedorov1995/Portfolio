@@ -2,16 +2,22 @@ import animals.*;
 import employee.Worker;
 import food.Grass;
 import food.Meat;
+import food.WrongFoodException;
+import model.Aviary;
+import model.Size;
 
 public class Zoo {
+    public static Aviary<Carnivorous> carnivorousAviary = new Aviary<Carnivorous>(Size.LARGE);
+    public  static Aviary<Herbivore> herbivoreAviary = new Aviary<Herbivore>(Size.MEDIUM);
+
     public static void main(String[] args) {
     // объекты животных
-        Bear bear = new Bear();
-        Chicken chicken = new Chicken();
-        Duck duck = new Duck();
-        Fish fish = new Fish();
-        Giraffe giraffe = new Giraffe();
-        Kotik kotik = new Kotik();
+        Bear bear = new Bear("Misha");
+        Chicken chicken = new Chicken("Kok");
+        Duck duck = new Duck("Gus");
+        Fish fish = new Fish("Fish");
+        Giraffe giraffe = new Giraffe("Gosha");
+        Kotik kotik = new Kotik("Barsik");
 
 
         //еда
@@ -22,45 +28,116 @@ public class Zoo {
     //работник
         Worker worker = new Worker();
         //работа в клетке с медведем
-        worker.feed(bear, meat);
-        worker.feed(bear, grass);
+        try {
+            worker.feed(bear, meat);
+        } catch (WrongFoodException e) {
+            e.printStackTrace();
+        }
+        try {
+            worker.feed(bear, grass);
+        } catch (WrongFoodException e) {
+            e.printStackTrace();
+        }
         worker.getVoice(bear);
 
         //работа в курятнике
-        worker.feed(chicken, meat);
-        worker.feed(chicken, grass);
+        try {
+            worker.feed(chicken, meat);
+        } catch (WrongFoodException e) {
+            e.printStackTrace();
+        }
+        try {
+            worker.feed(chicken, grass);
+        } catch (WrongFoodException e) {
+            e.printStackTrace();
+        }
         worker.getVoice(chicken);
 
         //работа в утятнике
-        worker.feed(duck, meat);
-        worker.feed(duck, grass);
+        try {
+            worker.feed(duck, meat);
+        } catch (WrongFoodException e) {
+            e.printStackTrace();
+        }
+        try {
+            worker.feed(duck, grass);
+        } catch (WrongFoodException e) {
+            e.printStackTrace();
+        }
         worker.getVoice(duck);
 
         //работа на пруду
-        worker.feed(fish, meat);
-        worker.feed(fish, grass);
+        try {
+            worker.feed(fish, meat);
+        } catch (WrongFoodException e) {
+            e.printStackTrace();
+        }
+        try {
+            worker.feed(fish, grass);
+        } catch (WrongFoodException e) {
+            e.printStackTrace();
+        }
 
         //работа в клетке с жирафом
-        worker.feed(giraffe, meat);
-        worker.feed(giraffe, grass);
+        try {
+            worker.feed(giraffe, meat);
+        } catch (WrongFoodException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            worker.feed(giraffe, grass);
+        } catch (WrongFoodException e) {
+            throw new RuntimeException(e);
+        }
         worker.getVoice(giraffe);
 
         //играю с котиком
-        worker.feed(kotik, meat);
-        worker.feed(kotik, grass);
+        try {
+            worker.feed(kotik, meat);
+        } catch (WrongFoodException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            worker.feed(kotik, grass);
+        } catch (WrongFoodException e) {
+            throw new RuntimeException(e);
+        }
         worker.getVoice(kotik);
 
 
         for (Swim o:createPond()){
             o.swim();
         }
+
+
     }
 
     public static Swim[] createPond(){
         Swim[] swimmers = new Swim[3];
-        swimmers[0] = new Fish();
-        swimmers[1] = new Duck();
-        swimmers[2] = new Fish();
+        swimmers[0] = new Fish("Tune");
+        swimmers[1] = new Duck("Duck");
+        swimmers[2] = new Fish("Salmon");
         return swimmers;
     }
+
+    public static void fillCarnivorousAviary(){
+        carnivorousAviary.addAnimal(new Bear("misha"));
+        carnivorousAviary.addAnimal(new Fish("bob"));
+        carnivorousAviary.addAnimal(new Kotik("pups"));
+    }
+
+    public static void fillHerbivoreAviary(){
+        herbivoreAviary.addAnimal(new Giraffe("goga"));
+        herbivoreAviary.addAnimal(new Duck("utya"));
+        herbivoreAviary.addAnimal(new Chicken("kok"));
+    }
+
+    public static Carnivorous carnivorousAviary(String name){
+        return carnivorousAviary.getAnimal(name);
+    }
+
+    public static Herbivore getHerbivore(String name){
+        return herbivoreAviary.getAnimal(name);
+    }
+
 }
