@@ -1,7 +1,7 @@
 import animals.Kotik;
 
 public class Application {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Kotik fatKot = new Kotik("Gosha", "Low", 3, 10);
 
         Kotik kotik = new Kotik();
@@ -21,7 +21,9 @@ public class Application {
         System.out.println(Kotik.getCount());
     }
 
-    static boolean compareVoice(Kotik firstCat, Kotik secondCat){
-        return firstCat.getVoice().equals(secondCat.getVoice());
+    static boolean compareVoice(Kotik firstCat, Kotik secondCat) throws Exception {
+        if (firstCat != null & secondCat!=null) {
+            return firstCat.getVoice().equals(secondCat.getVoice());
+        } else throw new Exception();
     }
 }
