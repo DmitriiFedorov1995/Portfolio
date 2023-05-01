@@ -16,16 +16,17 @@ public class Aviary <T extends Animal>{
 
 
 
-    public void addAnimal(Animal animal) {
+    public void addAnimal(T t) {
         try{
-            aviaryMap.put(animal.getName(), (T) animal);
+            aviaryMap.put(t.getName(), t);
         }catch (WrongSizeException e){
             throw e;
         }
     }
 
     public Animal getAnimal(String name){
-        return (Animal) aviaryMap.get(name);
+
+        return (T) aviaryMap.get(name);
     }
 
     public boolean removeAnimal( String name){
