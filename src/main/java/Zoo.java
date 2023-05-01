@@ -5,6 +5,7 @@ import food.Meat;
 import food.WrongFoodException;
 import model.Aviary;
 import model.Size;
+import model.WrongSizeException;
 
 public class Zoo {
     private static Aviary<Carnivorous> carnivorousAviary = new Aviary<Carnivorous>(Size.LARGE);
@@ -110,6 +111,7 @@ public class Zoo {
         }
 
 
+
     }
 
     public static Swim[] createPond(){
@@ -120,9 +122,19 @@ public class Zoo {
         return swimmers;
     }
 
-    public static void fillCarnivorousAviary(){
-        carnivorousAviary.addAnimal(new Bear("misha"));
-        carnivorousAviary.addAnimal(new Fish("bob"));
+    public static void fillCarnivorousAviary() {
+            try {
+                carnivorousAviary.addAnimal(new Bear("misha"));
+            }catch (WrongSizeException e){
+
+            }
+
+
+
+
+            carnivorousAviary.addAnimal(new Fish("bob"));
+
+
         carnivorousAviary.addAnimal(new Kotik("pups"));
     }
 
