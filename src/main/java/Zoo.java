@@ -132,11 +132,11 @@ public class Zoo {
         herbivoreAviary.addAnimal(new Chicken("kok"));
     }
 
-    public static Carnivorous carnivorousAviary(String name){
+    public static Animal carnivorousAviary(String name){
         return carnivorousAviary.getAnimal(name);
     }
 
-    public static Herbivore getHerbivore(String name){
+    public static Animal getHerbivore(String name){
         return herbivoreAviary.getAnimal(name);
     }
 

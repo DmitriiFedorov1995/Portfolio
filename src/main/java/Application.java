@@ -1,6 +1,5 @@
 import animals.Kotik;
-import com.sun.istack.internal.NotNull;
-import com.sun.istack.internal.Nullable;
+
 
 public class Application {
     public static void main(String[] args) {
@@ -20,11 +19,16 @@ public class Application {
 
         System.out.println(compareVoice(fatKot, kotik));
 
+      System.out.println(compareVoice(null, null));
         System.out.println(Kotik.getCount());
     }
 
-    @Nullable
-    static boolean compareVoice(@NotNull Kotik firstCat,@NotNull Kotik secondCat){
+
+    static boolean compareVoice(Kotik firstCat, Kotik secondCat) throws NullPointerException{
+        try {
             return firstCat.getVoice().equals(secondCat.getVoice());
+        }catch (NullPointerException e){
+            throw e;
+        }
     }
 }
