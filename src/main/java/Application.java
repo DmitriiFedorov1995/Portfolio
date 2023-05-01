@@ -1,7 +1,9 @@
 import animals.Kotik;
+import com.sun.istack.internal.NotNull;
+import com.sun.istack.internal.Nullable;
 
 public class Application {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Kotik fatKot = new Kotik("Gosha", "Low", 3, 10);
 
         Kotik kotik = new Kotik();
@@ -21,9 +23,8 @@ public class Application {
         System.out.println(Kotik.getCount());
     }
 
-    static boolean compareVoice(Kotik firstCat, Kotik secondCat) throws Exception {
-        if (firstCat != null & secondCat!=null) {
+    @Nullable
+    static boolean compareVoice(@NotNull Kotik firstCat,@NotNull Kotik secondCat){
             return firstCat.getVoice().equals(secondCat.getVoice());
-        } else throw new Exception();
     }
 }
