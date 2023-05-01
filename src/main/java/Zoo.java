@@ -7,8 +7,8 @@ import model.Aviary;
 import model.Size;
 
 public class Zoo {
-    public static Aviary<Carnivorous> carnivorousAviary = new Aviary<Carnivorous>(Size.LARGE);
-    public  static Aviary<Herbivore> herbivoreAviary = new Aviary<Herbivore>(Size.MEDIUM);
+    private static Aviary<Carnivorous> carnivorousAviary = new Aviary<Carnivorous>(Size.LARGE);
+    private   static Aviary<Herbivore> herbivoreAviary = new Aviary<Herbivore>(Size.MEDIUM);
 
     public static void main(String[] args) {
     // объекты животных
@@ -31,12 +31,12 @@ public class Zoo {
         try {
             worker.feed(bear, meat);
         } catch (WrongFoodException e) {
-            e.printStackTrace();
+
         }
         try {
             worker.feed(bear, grass);
         } catch (WrongFoodException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
         worker.getVoice(bear);
 
@@ -136,8 +136,12 @@ public class Zoo {
         return carnivorousAviary.getAnimal(name);
     }
 
-    public static Animal getHerbivore(String name){
+    public static Herbivore getHerbivore(String name){
         return herbivoreAviary.getAnimal(name);
+    }
+
+    public static Carnivorous getCarnivorous(String name){
+        return carnivorousAviary.getAnimal(name);
     }
 
 }

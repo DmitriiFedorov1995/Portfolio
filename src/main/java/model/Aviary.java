@@ -16,7 +16,7 @@ public class Aviary <T extends Animal>{
 
 
 
-    public void addAnimal(T t) {
+    public void addAnimal(T t) throws WrongSizeException{
         try{
             aviaryMap.put(t.getName(), t);
         }catch (WrongSizeException e){
@@ -24,9 +24,9 @@ public class Aviary <T extends Animal>{
         }
     }
 
-    public Animal getAnimal(String name){
+    public T getAnimal(String name){
 
-        return (T) aviaryMap.get(name);
+        return aviaryMap.get(name);
     }
 
     public boolean removeAnimal( String name){
