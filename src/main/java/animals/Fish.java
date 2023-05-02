@@ -19,9 +19,6 @@ public class Fish extends Carnivorous implements Swim{
         super(name);
     }
 
-    @Override
-    public void eat(Food food) throws WrongFoodException {
-            super.eat(food);
 
-    }
+
 }

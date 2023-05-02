@@ -39,14 +39,8 @@ public class Kotik extends Carnivorous implements Voice, Run{
         return Objects.hash(getWeight(), getVoice());
     }
 
-    @Override
-    public void eat(Food food) throws WrongFoodException {
-        try {
-            super.eat(food);
-        }catch (WrongFoodException e){
-            e.printStackTrace();
-        }
-    }
+
+
 
     private static final int METHODS = 5;
     private int weight;

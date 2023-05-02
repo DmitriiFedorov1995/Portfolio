@@ -20,10 +20,8 @@ public class Bear extends Carnivorous implements Run, Voice{
         return Size.LARGE;
     }
 
-    @Override
-    public void eat(Food food) throws WrongFoodException {
-            super.eat(food);
-    }
+
+
 
     public Bear(String name) {
         super(name);
