@@ -25,7 +25,7 @@ public class Application {
 
 
     static boolean compareVoice(Kotik firstCat, Kotik secondCat) {
-       if (firstCat == null && secondCat != null){
+       if (firstCat == null || secondCat == null){
             return false;
        }else return firstCat.getVoice().equals(secondCat.getVoice());
     }
