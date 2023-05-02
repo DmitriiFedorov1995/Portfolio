@@ -45,12 +45,12 @@ public class Zoo {
         try {
             worker.feed(chicken, meat);
         } catch (WrongFoodException e) {
-            e.printStackTrace();
+
         }
         try {
             worker.feed(chicken, grass);
         } catch (WrongFoodException e) {
-            e.printStackTrace();
+
         }
         worker.getVoice(chicken);
 
@@ -58,12 +58,12 @@ public class Zoo {
         try {
             worker.feed(duck, meat);
         } catch (WrongFoodException e) {
-            e.printStackTrace();
+
         }
         try {
             worker.feed(duck, grass);
         } catch (WrongFoodException e) {
-            e.printStackTrace();
+
         }
         worker.getVoice(duck);
 
@@ -71,7 +71,7 @@ public class Zoo {
         try {
             worker.feed(fish, meat);
         } catch (WrongFoodException e) {
-            e.printStackTrace();
+
         }
         try {
             worker.feed(fish, grass);
@@ -83,12 +83,12 @@ public class Zoo {
         try {
             worker.feed(giraffe, meat);
         } catch (WrongFoodException e) {
-            throw new RuntimeException(e);
+
         }
         try {
             worker.feed(giraffe, grass);
         } catch (WrongFoodException e) {
-            throw new RuntimeException(e);
+
         }
         worker.getVoice(giraffe);
 
@@ -96,13 +96,15 @@ public class Zoo {
         try {
             worker.feed(kotik, meat);
         } catch (WrongFoodException e) {
-            throw new RuntimeException(e);
+
         }
+
         try {
             worker.feed(kotik, grass);
         } catch (WrongFoodException e) {
-            throw new RuntimeException(e);
+
         }
+
         worker.getVoice(kotik);
 
 

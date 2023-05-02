@@ -24,11 +24,9 @@ public class Application {
     }
 
 
-    static boolean compareVoice(Kotik firstCat, Kotik secondCat) throws NullPointerException{
-        try {
-            return firstCat.getVoice().equals(secondCat.getVoice());
-        }catch (NullPointerException e){
-            throw e;
-        }
+    static boolean compareVoice(Kotik firstCat, Kotik secondCat) throws RuntimeException{
+        if (firstCat == null && secondCat == null){
+            throw new RuntimeException();
+        } else return firstCat.getVoice().equals(secondCat.getVoice());
     }
 }

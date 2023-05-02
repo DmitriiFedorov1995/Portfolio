@@ -10,7 +10,6 @@ public class Worker {
        try {
            animal.eat(food);
        }catch (WrongFoodException e){
-           throw e;
        }
     }
 
