@@ -19,13 +19,13 @@ public class Application {
 
         System.out.println(compareVoice(fatKot, kotik));
 
-      System.out.println(compareVoice(null, null));
-        System.out.println(Kotik.getCount());
+     /* System.out.println(compareVoice(null, null));
+        System.out.println(Kotik.getCount());*/
     }
 
 
     static boolean compareVoice(Kotik firstCat, Kotik secondCat) {
-        if (firstCat == null && secondCat == null){
+        if (firstCat == null || secondCat == null){
             throw new NullPointerException();
         } else return firstCat.getVoice().equals(secondCat.getVoice());
     }
