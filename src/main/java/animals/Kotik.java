@@ -4,6 +4,8 @@ import food.Food;
 import food.WrongFoodException;
 import model.Size;
 
+import java.util.Objects;
+
 public class Kotik extends Carnivorous implements Voice, Run{
     @Override
     public String getVoice() {
@@ -22,6 +24,19 @@ public class Kotik extends Carnivorous implements Voice, Run{
 
     public Kotik(String name) {
         super(name);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Kotik kotik = (Kotik) o;
+        return getWeight() == kotik.getWeight() && Objects.equals(getVoice(), kotik.getVoice());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getWeight(), getVoice());
     }
 
     @Override
