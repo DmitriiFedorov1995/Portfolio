@@ -29,81 +29,57 @@ public class Zoo {
     //работник
         Worker worker = new Worker();
         //работа в клетке с медведем
-        try {
-            worker.feed(bear, meat);
-        } catch (WrongFoodException e) {
 
-        }
-        try {
+            worker.feed(bear, meat);
+
+
             worker.feed(bear, grass);
-        } catch (WrongFoodException e) {
-            //e.printStackTrace();
-        }
+
         worker.getVoice(bear);
 
         //работа в курятнике
-        try {
+
             worker.feed(chicken, meat);
-        } catch (WrongFoodException e) {
 
-        }
-        try {
+
             worker.feed(chicken, grass);
-        } catch (WrongFoodException e) {
 
-        }
         worker.getVoice(chicken);
 
         //работа в утятнике
-        try {
+
             worker.feed(duck, meat);
-        } catch (WrongFoodException e) {
 
-        }
-        try {
+
             worker.feed(duck, grass);
-        } catch (WrongFoodException e) {
 
-        }
         worker.getVoice(duck);
 
         //работа на пруду
-        try {
-            worker.feed(fish, meat);
-        } catch (WrongFoodException e) {
 
-        }
-        try {
+            worker.feed(fish, meat);
+
+
             worker.feed(fish, grass);
-        } catch (WrongFoodException e) {
-            e.printStackTrace();
-        }
+
 
         //работа в клетке с жирафом
-        try {
+
             worker.feed(giraffe, meat);
-        } catch (WrongFoodException e) {
 
-        }
-        try {
+
             worker.feed(giraffe, grass);
-        } catch (WrongFoodException e) {
 
-        }
         worker.getVoice(giraffe);
 
         //играю с котиком
-        try {
+
             worker.feed(kotik, meat);
-        } catch (WrongFoodException e) {
 
-        }
 
-        try {
+
             worker.feed(kotik, grass);
-        } catch (WrongFoodException e) {
 
-        }
 
         worker.getVoice(kotik);
 
