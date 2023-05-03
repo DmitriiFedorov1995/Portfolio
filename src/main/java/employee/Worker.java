@@ -13,7 +13,6 @@ public class Worker {
             e.printStackTrace();
         }
     }
-
     public void getVoice(Voice animal){
         System.out.println(animal.getVoice());
     }

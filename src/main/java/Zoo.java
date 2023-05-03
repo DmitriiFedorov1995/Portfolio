@@ -20,7 +20,6 @@ public class Zoo {
         Giraffe giraffe = new Giraffe("Gosha");
         Kotik kotik = new Kotik("Barsik");
 
-
         //еда
         Grass grass = new Grass();
         Meat meat = new Meat();
@@ -29,67 +28,37 @@ public class Zoo {
     //работник
         Worker worker = new Worker();
         //работа в клетке с медведем
-
             worker.feed(bear, meat);
-
-
             worker.feed(bear, grass);
-
-        worker.getVoice(bear);
+            worker.getVoice(bear);
 
         //работа в курятнике
-
             worker.feed(chicken, meat);
-
-
             worker.feed(chicken, grass);
-
-        worker.getVoice(chicken);
+            worker.getVoice(chicken);
 
         //работа в утятнике
-
             worker.feed(duck, meat);
-
-
             worker.feed(duck, grass);
-
-        worker.getVoice(duck);
+            worker.getVoice(duck);
 
         //работа на пруду
-
             worker.feed(fish, meat);
-
-
             worker.feed(fish, grass);
 
-
         //работа в клетке с жирафом
-
             worker.feed(giraffe, meat);
-
-
             worker.feed(giraffe, grass);
-
-        worker.getVoice(giraffe);
+            worker.getVoice(giraffe);
 
         //играю с котиком
-
             worker.feed(kotik, meat);
-
-
-
             worker.feed(kotik, grass);
-
-
-        worker.getVoice(kotik);
-
+            worker.getVoice(kotik);
 
         for (Swim o:createPond()){
             o.swim();
         }
-
-
-
     }
 
     public static Swim[] createPond(){
@@ -99,21 +68,14 @@ public class Zoo {
         swimmers[2] = new Fish("Salmon");
         return swimmers;
     }
-
-    public static void fillCarnivorousAviary() {
+    public static void fillCarnivorousAviary(){
             try {
                 carnivorousAviary.addAnimal(new Bear("misha"));
             }catch (WrongSizeException e){
 
             }
-
-
-
-
             carnivorousAviary.addAnimal(new Fish("bob"));
-
-
-        carnivorousAviary.addAnimal(new Kotik("pups"));
+            carnivorousAviary.addAnimal(new Kotik("pups"));
     }
 
     public static void fillHerbivoreAviary(){

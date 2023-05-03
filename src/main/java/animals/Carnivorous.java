@@ -9,10 +9,8 @@ public abstract class Carnivorous extends Animal{
     public void eat(Food food) throws WrongFoodException{
             if (!(food instanceof Meat)) {
                throw new WrongFoodException();
-            } else
-                this.satiety += food.getEnergy();
+            } else this.satiety += food.getEnergy();
     }
-
     public Carnivorous (String name){
         super(name);
     }

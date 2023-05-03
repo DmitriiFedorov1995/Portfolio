@@ -11,7 +11,6 @@ public abstract class Herbivore extends Animal{
             throw new WrongFoodException();
         }else this.satiety += food.getEnergy();
     }
-
     public Herbivore(String name) {
         super(name);
     }

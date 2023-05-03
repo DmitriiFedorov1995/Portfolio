@@ -7,17 +7,14 @@ public class Chicken extends Herbivore implements Run, Voice{
     public String getVoice() {
         return "Ko-ko-ko!";
     }
-
     @Override
     public void run() {
         System.out.println("прыгаю");
     }
-
     @Override
     public Size getSize() {
         return Size.MEDIUM;
     }
-
     public Chicken(String name) {
         super(name);
     }

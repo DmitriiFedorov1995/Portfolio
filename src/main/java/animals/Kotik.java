@@ -11,21 +11,17 @@ public class Kotik extends Carnivorous implements Voice, Run{
     public String getVoice() {
         return "Meow";
     }
-
     @Override
     public void run() {
         System.out.println("бегаю быстро");
     }
-
     @Override
     public Size getSize() {
         return Size.SMALL;
     }
-
     public Kotik(String name) {
         super(name);
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -33,19 +29,14 @@ public class Kotik extends Carnivorous implements Voice, Run{
         Kotik kotik = (Kotik) o;
         return getWeight() == kotik.getWeight() && Objects.equals(getVoice(), kotik.getVoice());
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(getWeight(), getVoice());
     }
 
-
-
-
     private static final int METHODS = 5;
     private int weight;
     private String voice;
-
     private static int count; //counter for implements objects
 
     public Kotik() {
@@ -55,7 +46,6 @@ public class Kotik extends Carnivorous implements Voice, Run{
         this.voice = "High";
         ++count;
     }
-
     public Kotik(String name, String voice, int satiety, int weight){
        //constructor with all properties
         super(name);
@@ -68,37 +58,24 @@ public class Kotik extends Carnivorous implements Voice, Run{
     public static int getCount() {
         return count;
     }
-
     public String getName(){
         return this.name;
     }
-
     public void setName(String name){
         this.name = name;
     }
-
-    /*public String getVoice(){
-        return this.voice;
-    }*/
-
-
-
     public void setVoice (String voice){
         this.voice = voice;
     }
-
     public int getSatiety(){
         return  this.satiety;
     }
-
     public void setSatiety(int satiety){
         this.satiety = satiety;
     }
-
     public int getWeight(){
         return this.weight;
     }
-
     public void setWeight(int weight){
         this.weight = weight;
     }
@@ -146,11 +123,9 @@ public class Kotik extends Carnivorous implements Voice, Run{
     public void eat(int satiety){
         this.satiety = this.satiety + satiety;
     }
-
     public void eat(int satiety, String foodName){
         this.satiety = this.satiety + satiety;
     }
-
     public void eat(){
         this.eat(1, "meat");
     }
