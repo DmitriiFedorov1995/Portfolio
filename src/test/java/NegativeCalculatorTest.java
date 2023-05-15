@@ -14,14 +14,18 @@ public class NegativeCalculatorTest {
                 {"/", "2", "0"},
                 {":", "2", "2"},
                 {" ", "2", "2"},
+                {"", "2", "2"},
                 {"+", " ", "2"},
-                {"/", "3", " "}
+                {"+", "", "2"},
+                {"/", "3", " "},
+                {"/", "3", ""},
+                {"+", String.valueOf(Integer.MAX_VALUE - Integer.MIN_VALUE), String.valueOf(Integer.MIN_VALUE)}
         };
     }
 
     // todo: negative test
     @Test(dataProvider = "negativeData", expectedExceptions = {CalculatorException.class})
     public void negativeTest(String operator, String one, String two) throws CalculatorException{
-        Assert.assertEquals( CalculatorException.class, Calculator.execute(new String[]{operator, one, two}), "test broken");
+        Calculator.execute(new String[]{operator, one, two});
     }
 }

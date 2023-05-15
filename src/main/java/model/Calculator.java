@@ -4,7 +4,7 @@ public class Calculator {
 
     public static String execute(String[] params) {
         String operator = params[0];
-        if (params[1] == " " || params[2] == " " || params[0] == null || params[1] == null || params[2] == null) {
+        if (params[1] == " " || params[2] == " " || params[0] == null || params[1] == null || params[2] == null || params[0] == "" || params[1] == "" || params[2] == "") {
             throw new CalculatorException();
         }
 
