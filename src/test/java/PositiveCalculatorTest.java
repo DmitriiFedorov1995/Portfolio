@@ -17,8 +17,8 @@ public class PositiveCalculatorTest {
                 {"*", "3.45", "-2.5", -8.625},
                 {"*", String.valueOf(Integer.MAX_VALUE), "0", 0.0},
                 {"*", String.valueOf(Integer.MIN_VALUE), "0", -0.0},
-                {"+", String.valueOf(Integer.MAX_VALUE - 0.0000000000000001), "0.0000000000000001", (double) Integer.MAX_VALUE},
-                {"-", String.valueOf(Integer.MIN_VALUE + 0.0000000000000001), "0.0000000000000001", (double) Integer.MIN_VALUE}
+                {"+", String.valueOf(Integer.MAX_VALUE - Double.MIN_VALUE), String.valueOf(Double.MIN_VALUE), (double) Integer.MAX_VALUE},
+                {"-", String.valueOf(Integer.MIN_VALUE + Double.MIN_VALUE), String.valueOf(Double.MIN_VALUE), (double) Integer.MIN_VALUE}
         };
     }
     // todo: positive test

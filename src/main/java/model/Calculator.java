@@ -1,18 +1,42 @@
 package model;
+import java.math.*;
 
 public class Calculator {
 
     public static String execute(String[] params) {
         String operator = params[0];
-        if (params[1] == " " || params[2] == " " || params[0] == null || params[1] == null || params[2] == null || params[0] == "" || params[1] == "" || params[2] == "") {
-            throw new CalculatorException();
-        }
+            if (params[1] == " "
+                    || params[2] == " "
+                    || params[0] == null
+                    || params[1] == null
+                    || params[2] == null
+                    || params[0].equals("")
+                    || params[1].equals("")
+                    || params[2].equals("")) {
+                throw new CalculatorException();
+            }
+
 
         double value1;
         double value2;
         // todo: доработать код, чтобы все негативные тесты проходили успешно
-        value1 = Double.parseDouble(params[1]);
-        value2 = Double.parseDouble(params[2]);
+        try {
+            value1 = Double.parseDouble(params[1]);
+            if (value1 > Integer.MAX_VALUE || value1 < Integer.MAX_VALUE) {
+                throw new CalculatorException("Превышен порог значений");
+            }
+        } catch (NumberFormatException e){
+            throw new CalculatorException("нечисловой параметр");
+        }
+
+        try {
+            value2 = Double.parseDouble(params[2]);
+            if (value2 > Integer.MAX_VALUE || value2 < Integer.MAX_VALUE) {
+                throw new CalculatorException("Превышен порог значений");
+            }
+        }catch (NumberFormatException e){
+            throw new CalculatorException("нечисловой параметр");
+        }
 
         double result = calculate(operator, value1, value2);
         if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {

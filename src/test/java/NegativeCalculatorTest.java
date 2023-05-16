@@ -19,7 +19,13 @@ public class NegativeCalculatorTest {
                 {"+", "", "2"},
                 {"/", "3", " "},
                 {"/", "3", ""},
-                {"+", String.valueOf(Integer.MAX_VALUE - Integer.MIN_VALUE), String.valueOf(Integer.MIN_VALUE)}
+                {"+", String.valueOf(Integer.MAX_VALUE - Integer.MIN_VALUE), String.valueOf(Integer.MIN_VALUE)}, //что это?
+                {"/", "one", "two"},
+                //проверка ввода значений за границами диапазона
+                {"*", String.valueOf((double) Integer.MIN_VALUE-Double.MIN_VALUE), "0"},
+                {"*", String.valueOf((double) Integer.MAX_VALUE+Double.MIN_VALUE), "0"},
+                {"*", "0", String.valueOf((double) Integer.MIN_VALUE-Double.MIN_VALUE)},
+                {"*", "0", String.valueOf((double) Integer.MAX_VALUE+Double.MIN_VALUE)},
         };
     }
 
