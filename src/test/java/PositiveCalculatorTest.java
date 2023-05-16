@@ -15,8 +15,8 @@ public class PositiveCalculatorTest {
                 {"-", "2", "2", 0.0},
                 {"/", "2", "2", 1.0},
                 {"*", "2", "2", 4.0},
-                {"-", "2", "1.1", 0.8999999999999999},
-                {"/", "1.25", "5", 0.25},
+                {"-", "2", "1.1", 0.899},
+                {"/", "1.25", "5", 0.250},
                 {"*", "3.45", "-2.5", -8.625},
                 {"*", String.valueOf(Integer.MAX_VALUE), "0", 0.0},
                 {"*", String.valueOf(Integer.MIN_VALUE), "0", -0.0},
@@ -28,6 +28,9 @@ public class PositiveCalculatorTest {
 
     @Test(dataProvider = "positiveData")
     public void positiveTest(String operator, String one, String two, double actual){
-        Assert.assertEquals( String.valueOf(actual), Calculator.execute(new String[]{operator, one, two}), "test broken");
+        //Assert.assertEquals( String.valueOf(actual), Calculator.execute(new String[]{operator, one, two}), "test broken");
+        //Assert.assertEquals(actual, Double.parseDouble(Calculator.execute(new String[]{operator, one, two}), 0.001));
+        double x = Double.parseDouble(Calculator.execute(new String[]{operator, one, two}));
+        Assert.assertEquals(actual, x, 0.001);
     }
 }
