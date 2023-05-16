@@ -1,12 +1,13 @@
 package model;
 import java.math.*;
+import java.util.Objects;
 
 public class Calculator {
 
     public static String execute(String[] params) {
         String operator = params[0];
-            if (params[1] == " "
-                    || params[2] == " "
+            if (Objects.equals(params[1], " ")
+                    || Objects.equals(params[2], " ")
                     || params[0] == null
                     || params[1] == null
                     || params[2] == null
@@ -44,6 +45,8 @@ public class Calculator {
         }
         return String.valueOf(result);
     }
+
+
 
     private static double calculate(String operator, double a, double b) {
         switch (operator) {
