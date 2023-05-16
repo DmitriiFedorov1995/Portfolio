@@ -22,7 +22,7 @@ public class Calculator {
         // todo: доработать код, чтобы все негативные тесты проходили успешно
         try {
             value1 = Double.parseDouble(params[1]);
-            if (value1 > Integer.MAX_VALUE || value1 < Integer.MAX_VALUE) {
+            if (value1 > Integer.MAX_VALUE || value1 < Integer.MIN_VALUE) {
                 throw new CalculatorException("Превышен порог значений");
             }
         } catch (NumberFormatException e){
@@ -31,7 +31,7 @@ public class Calculator {
 
         try {
             value2 = Double.parseDouble(params[2]);
-            if (value2 > Integer.MAX_VALUE || value2 < Integer.MAX_VALUE) {
+            if (value2 > Integer.MAX_VALUE || value2 < Integer.MIN_VALUE) {
                 throw new CalculatorException("Превышен порог значений");
             }
         }catch (NumberFormatException e){

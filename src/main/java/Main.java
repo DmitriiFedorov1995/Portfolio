@@ -6,9 +6,6 @@ public class Main {
     public static void main(String[] args) {
         String[] params = readParams();
         System.out.println(Calculator.execute(params));
-        Double x = Integer.MAX_VALUE + 0.0000000000000001;
-        System.out.println(x > Integer.MAX_VALUE);
-
     }
 
     private static String[] readParams() {
