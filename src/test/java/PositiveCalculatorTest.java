@@ -12,7 +12,6 @@ public class PositiveCalculatorTest {
     public Object[]positiveData(){
         return new Object[][]{
                 //проверка граничных значений ввода/вывода
-
                 {"+",String.valueOf(0), String.valueOf(Integer.MIN_VALUE), Integer.MIN_VALUE},  // нижняя граница диапазона для result и value2
                 {"+",String.valueOf(Integer.MIN_VALUE), String.valueOf(0.001), Integer.MIN_VALUE+0.001},     //"справа" от нижней границы для result и нижняя граница для value1
                 {"+",String.valueOf(0), String.valueOf(Integer.MAX_VALUE), Integer.MAX_VALUE},  // верхняя граница диапазона для result и value2
@@ -38,21 +37,12 @@ public class PositiveCalculatorTest {
                 {"-", "2", "1.1", 0.899},
                 {"/", "1.25", "5", 0.250},
                 {"*", "3.45", "-2.5", -8.625},
-
-
-
-              //  {"*", String.valueOf(Integer.MAX_VALUE), "0", 0.0},
-                //{"*", String.valueOf(Integer.MIN_VALUE), "0", -0.0},
-              //  {"+", String.valueOf(Integer.MAX_VALUE - 0.0000000000000001), String.valueOf(0.0000000000000001), Integer.MAX_VALUE},
-                //{"-", String.valueOf( Integer.MIN_VALUE + 0.0000000000000001), String.valueOf(0.0000000000000001), Integer.MIN_VALUE}
         };
     }
     // todo: positive test
 
     @Test(dataProvider = "positiveData")
     public void positiveTest(String operator, String one, String two, double actual){
-        //Assert.assertEquals( String.valueOf(actual), Calculator.execute(new String[]{operator, one, two}), "test broken");
-        //Assert.assertEquals(actual, Double.parseDouble(Calculator.execute(new String[]{operator, one, two}), 0.001));
         double x = Double.parseDouble(Calculator.execute(new String[]{operator, one, two}));
         Assert.assertEquals(actual, x, 0.001);
     }
