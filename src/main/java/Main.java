@@ -4,8 +4,11 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String[] params = readParams();
-        System.out.println(Calculator.execute(params));
+      //  String[] params = readParams();
+        //System.out.println(Calculator.execute(params));
+
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Integer.MIN_VALUE);
     }
 
     private static String[] readParams() {

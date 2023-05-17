@@ -6,21 +6,20 @@ public class Calculator {
 
     public static String execute(String[] params) {
         String operator = params[0];
-            if (Objects.equals(params[1], " ")
-                    || Objects.equals(params[2], " ")
-                    || params[0] == null
-                    || params[1] == null
-                    || params[2] == null
-                    || params[0].equals("")
-                    || params[1].equals("")
-                    || params[2].equals("")) {
-                throw new CalculatorException();
-            }
-
-
         double value1;
         double value2;
         // todo: доработать код, чтобы все негативные тесты проходили успешно
+        if (Objects.equals(params[1], " ")
+                || Objects.equals(params[2], " ")
+                || params[0] == null
+                || params[1] == null
+                || params[2] == null
+                || params[0].equals("")
+                || params[1].equals("")
+                || params[2].equals("")) {
+            throw new CalculatorException();
+        }
+
         try {
             value1 = Double.parseDouble(params[1]);
             if (value1 > Integer.MAX_VALUE || value1 < Integer.MIN_VALUE) {

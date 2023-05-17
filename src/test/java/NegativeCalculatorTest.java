@@ -9,23 +9,25 @@ public class NegativeCalculatorTest {
     @DataProvider
     public Object[] negativeData(){
         return new Object[][]{
-                {"+", String.valueOf(Integer.MAX_VALUE), "2"},
-                {"-", "2", String.valueOf(Integer.MIN_VALUE)},
-                {"/", "2", "0"},
-                {":", "2", "2"},
-                {" ", "2", "2"},
-                {"", "2", "2"},
+                //проверка вывода результата за границами диапазона
+                {"+", String.valueOf(Integer.MAX_VALUE), "0.001"},// result не существует за верхней границей
+                {"-", String.valueOf(Integer.MIN_VALUE), "0.001"}, //result не существует за нижней границей
+                //проверка ввода значений за границами диапазона
+                {"*", String.valueOf((double) Integer.MIN_VALUE-0.001), "0"}, //value1 не существует за нижней границей
+                {"*", String.valueOf((double) Integer.MAX_VALUE+0.001), "0"}, //value1 не существует за верхней границей
+                {"*", "0", String.valueOf((double) Integer.MIN_VALUE-0.001)}, //value2 не существует за нижней границей
+                {"*", "0", String.valueOf((double) Integer.MAX_VALUE+0.001)}, //value2 не существует за верхней границей
+
+                //проверка осноных исключений
+                {"/", "2", "0"}, //деление на ноль
+                {":", "2", "2"}, //несуществующий оператор ":"
+                {" ", "2", "2"}, //несуществующий оператор " "
+                {"", "2", "2"},  //несуществующий оператор ""
                 {"+", " ", "2"},
                 {"+", "", "2"},
                 {"/", "3", " "},
                 {"/", "3", ""},
-                {"+", String.valueOf(Integer.MAX_VALUE - Integer.MIN_VALUE), String.valueOf(Integer.MIN_VALUE)}, //что это?
                 {"/", "one", "two"},
-                //проверка ввода значений за границами диапазона
-                {"*", String.valueOf((double) Integer.MIN_VALUE-1), "0"},
-                {"*", String.valueOf((double) Integer.MAX_VALUE+1), "0"},
-                {"*", "0", String.valueOf((double) Integer.MIN_VALUE-1)},
-                {"*", "0", String.valueOf((double) Integer.MAX_VALUE+1)},
         };
     }
 
