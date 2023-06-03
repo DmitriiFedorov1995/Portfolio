@@ -40,8 +40,7 @@ public class Ticket {
      private String resolution;
 
     @SerializedName("priority")
-    @JsonIgnore
-     private Integer[] priority = new Integer[5];
+     private Integer priority;
     @SerializedName("last_escalation")
     @JsonIgnore
      private String last_escalation;
@@ -67,7 +66,7 @@ public class Ticket {
     }
 
 
-    public Ticket(String title, Integer queue, int status, Integer[] priority) {
+    public Ticket(String title, Integer queue, int status, Integer priority) {
         this.title = title;
         this.status = status;
         this.priority = priority;
@@ -118,7 +117,7 @@ public class Ticket {
         return resolution;
     }
 
-    public Integer[] getPriority() {
+    public Integer getPriority() {
         return priority;
     }
 
@@ -186,7 +185,7 @@ public class Ticket {
         this.resolution = resolution;
     }
 
-    public void setPriority(Integer[] priority) {
+    public void setPriority(Integer priority) {
         this.priority = priority;
     }
 

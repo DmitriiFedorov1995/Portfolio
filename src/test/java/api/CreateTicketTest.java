@@ -2,6 +2,7 @@ package api;
 //import io.restassured.http.ContentType;
 //import model.AuthToken;
 //import org.json.*;
+import model.Status;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import model.Ticket;
@@ -17,7 +18,7 @@ public class CreateTicketTest extends BaseTest {
     @Test
     public void createTicketTest() throws IOException {
         // todo: создать тикет и проверить, что он находится в системе
-        Ticket ticket = buildNewTicket(null, null);
+        Ticket ticket = buildNewTicket(Status.OPEN, System.getProperty("priority"));
         Ticket newTicket = createTicket(ticket);
 
         Assert.assertEquals(ticket, getTicket(newTicket.getId())); //eqTicket.getTitle()

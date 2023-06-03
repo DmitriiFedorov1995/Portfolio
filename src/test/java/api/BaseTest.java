@@ -55,11 +55,11 @@ public abstract class BaseTest {
                 .as(AuthToken.class);
     }
 
-    protected Ticket buildNewTicket(Status status, Integer[] priority) throws IOException{
+    protected Ticket buildNewTicket(Status status, String priority) throws IOException{
         System.getProperties().load(ClassLoader.getSystemResourceAsStream("config.properties"));
         // todo: создать объект с тестовыми данными
         return new Ticket(System.getProperty("title"), Integer.valueOf(System.getProperty("queue")),
-               status.getCode(), priority);
+               status.getCode(), Integer.valueOf(priority));
     }
 
     protected Ticket createTicket(Ticket ticket) {
