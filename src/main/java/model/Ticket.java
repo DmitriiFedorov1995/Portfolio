@@ -230,6 +230,13 @@ public class Ticket {
     @Override
     public int hashCode() {
         // todo
-        return 0;
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((status == null) ? 0 : status.hashCode());
+        result = prime * result + id;
+        result = prime * result + ((priority == null) ? 0 : priority.hashCode());
+        result =  prime * result + ((queue == null) ? 0 : queue.hashCode());
+        return result;
+        //return this.hashCode();
     }
 }
