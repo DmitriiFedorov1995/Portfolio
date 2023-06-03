@@ -18,7 +18,7 @@ public class CreateTicketTest extends BaseTest {
     @Test
     public void createTicketTest() throws IOException {
         // todo: создать тикет и проверить, что он находится в системе
-        Ticket ticket = buildNewTicket(Status.OPEN, Integer.valueOf(System.getProperty("priority")));
+        Ticket ticket = buildNewTicket(Status.OPEN, Integer.parseInt(System.getProperty("priority")));
         Ticket newTicket = createTicket(ticket);
         Assert.assertEquals(ticket, getTicket(newTicket.getId()));
     }
