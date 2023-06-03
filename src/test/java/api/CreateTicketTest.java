@@ -1,12 +1,9 @@
 package api;
-//import io.restassured.http.ContentType;
-//import model.AuthToken;
-//import org.json.*;
+
 import model.Status;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import model.Ticket;
-//import io.restassured.*;
 
 import java.io.IOException;
 

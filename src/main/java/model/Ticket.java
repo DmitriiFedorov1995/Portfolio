@@ -10,7 +10,6 @@ public class Ticket {
 
     // todo: serialized поля, геттеры и сеттеры
     @SerializedName("id")
-    //@JsonIgnore
      private Integer id;
     @SerializedName("due_date")
     @JsonIgnore
