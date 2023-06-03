@@ -220,10 +220,10 @@ public class Ticket {
         }
 
         Ticket eqTick = (Ticket) o;
-        return ((title != null && title.equals(eqTick.getTitle()))
-                && (status != null && status.equals(eqTick.getStatus()))
-                && (priority != null && priority.equals(eqTick.getPriority()))
-                && (queue != null && queue.equals(eqTick.getQueue())));
+        return ((/*title != null &&*/ title.equals(eqTick.getTitle()))
+                && (/*status != null &&*/ status.equals(eqTick.getStatus()))
+                && (/*priority != null &&*/ priority.equals(eqTick.getPriority()))
+                && (/*queue != null &&*/ queue.equals(eqTick.getQueue())));
     }
 
 
