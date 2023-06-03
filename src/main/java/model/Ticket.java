@@ -3,6 +3,8 @@ package model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 /** Объект тикета (POJO) */
 public class Ticket {
 
@@ -209,34 +211,26 @@ public class Ticket {
         this.merged_to = merged_to;
     }
 
+
     @Override
     public boolean equals(Object o) {
-        // todo
-        if (o == this) {
-            return true;
-        }
-        if (o == null || o.getClass() != this.getClass()) {
-            return false;
-        }
-
-        Ticket eqTick = (Ticket) o;
-        return ((title != null && title.equals(eqTick.getTitle()))
-                && (status != null && status.equals(eqTick.getStatus()))
-                && (priority != null && priority.equals(eqTick.getPriority()))
-                && (queue != null && queue.equals(eqTick.getQueue())));
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ticket ticket = (Ticket) o;
+        return  Objects.equals(getDue_date(), ticket.getDue_date())
+                && Objects.equals(getAssigned_to(), ticket.getAssigned_to())
+                && Objects.equals(getTitle(),
+                ticket.getTitle()) && Objects.equals(getCreated(), ticket.getCreated()) && Objects.equals(getModified(),
+                ticket.getModified()) && Objects.equals(getSubmitter_email(), ticket.getSubmitter_email()) && Objects.equals(getStatus(),
+                ticket.getStatus()) && Objects.equals(getOn_hold(), ticket.getOn_hold()) && Objects.equals(getDescription(),
+                ticket.getDescription()) && Objects.equals(getResolution(), ticket.getResolution()) && Objects.equals(getPriority(),
+                ticket.getPriority()) && Objects.equals(getLast_escalation(), ticket.getLast_escalation()) && Objects.equals(getSecret_key(),
+                ticket.getSecret_key()) && Objects.equals(getQueue(), ticket.getQueue()) && Objects.equals(getKbitem(),
+                ticket.getKbitem()) && Objects.equals(getMerged_to(), ticket.getMerged_to());
     }
-
 
     @Override
     public int hashCode() {
-        // todo
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((status == null) ? 0 : status.hashCode());
-        result = prime * result + id;
-        result = prime * result + ((priority == null) ? 0 : priority.hashCode());
-        result =  prime * result + ((queue == null) ? 0 : queue.hashCode());
-        return result;
-        //return this.hashCode();
+        return Objects.hash(getId(), getDue_date(), getAssigned_to(), getTitle(), getCreated(), getModified(), getSubmitter_email(), getStatus(), getOn_hold(), getDescription(), getResolution(), getPriority(), getLast_escalation(), getSecret_key(), getQueue(), getKbitem(), getMerged_to());
     }
 }

@@ -32,4 +32,9 @@ public class UpdateTicketTest extends BaseTest {
                 .then()
                 .statusCode(422);
     }
+
+    @Test
+    public void equalsTics (){
+
+    }
 }
