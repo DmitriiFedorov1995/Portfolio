@@ -31,7 +31,7 @@ public abstract class BaseTest {
             // todo: подготовить глобальные преднастройки для запросов
             RestAssured.requestSpecification = new RequestSpecBuilder()
                     .setBaseUri(baseUri)
-                    .addHeader("Authorization", "Token "+login().getToken())
+                   //.addHeader("Authorization", "Token "+login().getToken())
                     .setAccept(ContentType.JSON)
                     .setContentType(ContentType.JSON)
                     .log(LogDetail.ALL)
@@ -48,27 +48,28 @@ public abstract class BaseTest {
                 .when()
                 .body(authToken)
                 //.baseUri(System.getProperty("base.uri"))
-                .post("/api/login")
+                .post("api/login")
                 .then()
                 .statusCode(200)
                 .extract().body()
                 .as(AuthToken.class);
     }
 
-    protected Ticket buildNewTicket(Status status, String priority) throws IOException{
+    protected Ticket buildNewTicket(Status status, int priority) throws IOException{
         System.getProperties().load(ClassLoader.getSystemResourceAsStream("config.properties"));
         // todo: создать объект с тестовыми данными
         return new Ticket(System.getProperty("title"), Integer.valueOf(System.getProperty("queue")),
-               status.getCode(), Integer.valueOf(priority));
+               status.getCode(), priority);
     }
 
     protected Ticket createTicket(Ticket ticket) {
         // todo: отправить HTTP запрос для создания тикета
+
         return given()
                 .contentType(ContentType.JSON)
                 .accept("application/json")
                 .body(ticket)
-                .post("/api/tickets")
+                .post("api/tickets")
                 .then()
                 .statusCode(201)
                 .extract().body()

@@ -28,7 +28,7 @@ public class Ticket {
     @JsonIgnore
      private String submitter_email;
     @SerializedName("status")
-     private int status;
+     private Integer status;
     @SerializedName("on_hold")
     @JsonIgnore
      private Boolean on_hold;
@@ -66,7 +66,7 @@ public class Ticket {
     }
 
 
-    public Ticket(String title, Integer queue, int status, Integer priority) {
+    public Ticket(String title, Integer queue, Integer status, Integer priority) {
         this.title = title;
         this.status = status;
         this.priority = priority;
@@ -101,7 +101,7 @@ public class Ticket {
         return submitter_email;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
@@ -169,7 +169,7 @@ public class Ticket {
         this.submitter_email = submitter_email;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -220,8 +220,10 @@ public class Ticket {
         }
 
         Ticket eqTick = (Ticket) o;
-        return (title.equals(eqTick.getTitle())  ||
-                (title != null && title.equals(eqTick.getTitle())));
+        return ((title != null && title.equals(eqTick.getTitle()))
+                && (status != null && status.equals(eqTick.getStatus()))
+                && (priority != null && priority.equals(eqTick.getPriority()))
+                && (queue != null && queue.equals(eqTick.getQueue())));
     }
 
 

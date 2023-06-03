@@ -18,18 +18,18 @@ public class CreateTicketTest extends BaseTest {
     @Test
     public void createTicketTest() throws IOException {
         // todo: создать тикет и проверить, что он находится в системе
-        Ticket ticket = buildNewTicket(Status.OPEN, System.getProperty("priority"));
+        Ticket ticket = buildNewTicket(Status.OPEN, Integer.valueOf(System.getProperty("priority")));
         Ticket newTicket = createTicket(ticket);
-
-        Assert.assertEquals(ticket, getTicket(newTicket.getId())); //eqTicket.getTitle()
+        Assert.assertEquals(ticket, getTicket(newTicket.getId()));
     }
 
-    protected Ticket getTicket(int id) {
+    protected Ticket getTicket(int id) throws IOException{
         // todo: отправить HTTP запрос на получение тикета по его id
         return given()
+                    .header("Authorization", "Token "+login().getToken())
                     .pathParam("ticketID", id)
                 .when()
-                    .get("/api/tickets/{ticketID}")
+                    .get("api/tickets/{ticketID}")
                 .then()
                     .statusCode(200)
                     .extract().body()
