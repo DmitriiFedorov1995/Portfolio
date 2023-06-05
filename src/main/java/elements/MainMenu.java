@@ -12,7 +12,7 @@ public class MainMenu {
 
     // Способ объявления элементов страницы, через аннотацию @FindBy (с последующей инициализацией)
 
-    @FindBy(xpath = "/html/body/div[1]/ul/li[2]/a/span")//"//span[contains(text(),'New Ticket')]")
+    @FindBy(xpath = "//span[contains(text(),'New Ticket')]")
     private WebElement newTicketButton;
 
     @FindBy(id = "userDropdown")

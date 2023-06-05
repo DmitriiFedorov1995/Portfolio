@@ -18,6 +18,8 @@ public class HelpdeskUITest {
     private WebDriver driver;
     private Ticket ticket;
 
+    private MainMenu mainMenu;
+
 
 
     @BeforeClass
@@ -26,6 +28,9 @@ public class HelpdeskUITest {
         setupDriver();
         System.setProperty("web-driver.chrome.driver", System.getProperty("webdriver.chrome.driver"));
         driver.get(System.getProperty("site.url"));
+        mainMenu = new MainMenu(driver);
+        String user = System.getProperty("user");
+        String password = System.getProperty("password");
 
 
     }
@@ -35,6 +40,7 @@ public class HelpdeskUITest {
         // Читаем конфигурационные файлы в System.properties
         System.getProperties().load(ClassLoader.getSystemResourceAsStream("config.properties"));
         System.getProperties().load(ClassLoader.getSystemResourceAsStream("user.properties"));
+
     }
 
     @Step("Создать экземпляр драйвера")
@@ -53,22 +59,19 @@ public class HelpdeskUITest {
     @Test
     public void createTicketTest() {
         // todo: шаги тест-кейса
-        String user = System.getProperty("user");
-        String password = System.getProperty("password");
-        MainMenu mainMenu = new MainMenu(driver);
-        TicketsPage ticketsPage = new TicketsPage();
-        new MainMenu(driver).clickOnNewTicketButton();
+        //MainMenu mainMenu = new MainMenu(driver);
+        mainMenu.clickOnNewTicketButton();
         // ...
         ticket = buildNewTicket();
         // ...
         new CreateTicketPage().createTicket(ticket);
         new ViewPage().saveId(ticket);
         mainMenu.clickOnLogInButton();
-        new LoginPage().login(user, password);
+        new LoginPage().login(System.getProperty("user"), System.getProperty("password"));
         mainMenu.setInputSearch(ticket.getTitle()); //поиск по тайтлу
         mainMenu.clickOnGoButton();                //кнопка го
-        ticketsPage.openTicket(ticket);
-        new TicketPage().checkTicket(ticket);//открыть тикет
+        new TicketsPage().openTicket(ticket);      //открыть тикет
+        new TicketPage().checkTicket(ticket);       //проверить тикет
     }
 
     private Ticket buildNewTicket() {
