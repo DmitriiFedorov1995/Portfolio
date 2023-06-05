@@ -99,7 +99,7 @@ public class CreateTicketPage extends HelpdeskBasePage {
     @Step("Создать тикет")
     public CreateTicketPage createTicket(Ticket ticket) {
         // todo: заполнить остальные поля формы
-        new MainMenu(driver).clickOnNewTicketButton();//нажали на кнопку создания нового тикет, перешли на вкладку создания нового тикета//
+        //new MainMenu(driver).clickOnNewTicketButton();//нажали на кнопку создания нового тикет, перешли на вкладку создания нового тикета//
        setInputProblem(ticket.getTitle());
        new Select(selectQueue).selectByIndex(1);
         describe.sendKeys(ticket.getDescription());

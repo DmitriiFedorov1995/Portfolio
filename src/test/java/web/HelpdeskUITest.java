@@ -60,6 +60,7 @@ public class HelpdeskUITest {
         // ...
         ticket = buildNewTicket();
         // ...
+        new MainMenu(driver).clickOnNewTicketButton();
         new CreateTicketPage().createTicket(ticket);
         new ViewPage().saveId(ticket);
         mainMenu.clickOnLogInButton();
@@ -81,7 +82,7 @@ public class HelpdeskUITest {
         return ticket;
     }
 
-    @AfterTest
+   @AfterTest
     public void close() {
         if (driver != null) {
             // Закрываем одно текущее окно браузера
