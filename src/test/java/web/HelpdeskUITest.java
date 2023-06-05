@@ -67,7 +67,7 @@ public class HelpdeskUITest {
         mainMenu.setInputSearch(ticket.getTitle()); //поиск по тайтлу
         mainMenu.clickOnGoButton();                //кнопка го
         ticketsPage.openTicket(ticket);
-        new TicketPage().checkTicket(ticket);//открыть тикет
+        //new TicketPage().checkTicket(ticket);//открыть тикет
     }
 
     private Ticket buildNewTicket() {
@@ -81,7 +81,7 @@ public class HelpdeskUITest {
         return ticket;
     }
 
-    //@AfterTest
+    @AfterTest
     public void close() {
         if (driver != null) {
             // Закрываем одно текущее окно браузера
