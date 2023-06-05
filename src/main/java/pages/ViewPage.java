@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 //import org.testng.Assert;
 
 //import java.time.Duration;
@@ -42,9 +43,7 @@ public class ViewPage extends HelpdeskBasePage {
 
     @Step("Проверить значение полей на карточке тикета")
     public ViewPage checkTicket(Ticket ticket) {
-
-
-
+        Assert.assertTrue(description.getText().contains(ticket.getDescription()));
         ticket.setTitle(getTicketTitle());
         saveId(ticket);// todo: добавить проверки
         return this;

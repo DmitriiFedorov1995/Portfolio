@@ -101,7 +101,7 @@ public class CreateTicketPage extends HelpdeskBasePage {
         // todo: заполнить остальные поля формы
         //new MainMenu(driver).clickOnNewTicketButton();//нажали на кнопку создания нового тикет, перешли на вкладку создания нового тикета//
        setInputProblem(ticket.getTitle());
-       new Select(selectQueue).selectByIndex(1);
+       new Select(selectQueue).selectByIndex(ticket.getQueue());
         describe.sendKeys(ticket.getDescription());
         new Select(priority).selectByIndex(1);
         dueOnButton.sendKeys(ticket.getDue_date());
