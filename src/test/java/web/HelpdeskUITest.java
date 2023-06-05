@@ -20,7 +20,8 @@ public class HelpdeskUITest {
 
     private MainMenu mainMenu;
 
-
+    public HelpdeskUITest() {
+    }
 
     @BeforeClass
     public void setup() throws IOException {
@@ -85,7 +86,7 @@ public class HelpdeskUITest {
         return ticket;
     }
 
-  // @AfterTest
+    @AfterTest
     public void close() {
         if (driver != null) {
             // Закрываем одно текущее окно браузера
