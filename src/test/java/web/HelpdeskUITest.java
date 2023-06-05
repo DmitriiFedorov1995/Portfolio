@@ -84,6 +84,7 @@ public class HelpdeskUITest {
         ticket.setDue_date("1232-08-23 14:45:22");
         ticket.setSubmitter_email("erre@rere.trt");
         ticket.setQueue(1);
+        ticket.setPriority(1);
         return ticket;
     }
 

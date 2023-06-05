@@ -9,11 +9,11 @@ public class Dictionaries {
     private static final HashMap<Integer, String> queues = new HashMap<>();
 
     static {
-        priorities.put(1, "1. Critical");
-        priorities.put(2, "2. High");
-        priorities.put(3, "3. Normal");
-        priorities.put(4, "4. Low");
-        priorities.put(5, "5. Very Low");
+        priorities.put(0, "1. Critical");
+        priorities.put(1, "2. High");
+        priorities.put(2, "3. Normal");
+        priorities.put(3, "4. Low");
+        priorities.put(4, "5. Very Low");
 
         queues.put(1, "Django Helpdesk");
         queues.put(2, "Some Product");

@@ -31,11 +31,13 @@ public class TicketPage extends HelpdeskBasePage {
     public void checkTicket(Ticket ticket) {
         String mail = email.getText();
         String strQueue = queueNew.getText();
+        String strPriority = priority.getText();
+        String asPriority = Dictionaries.getPriority(ticket.getPriority());
         //Assert.assertTrue(dueDate.getText().contains(ticket.getDue_date()));
         Assert.assertTrue(title.getText().contains(ticket.getTitle()));
         Assert.assertTrue(strQueue.contains(Dictionaries.getQueue(ticket.getQueue())));
         Assert.assertTrue((mail.contains(ticket.getSubmitter_email())));
-        //Assert.assertTrue(priority.getText().contains(String.valueOf(ticket.getPriority())));
+        Assert.assertTrue(strPriority.contains(Dictionaries.getPriority(ticket.getPriority())));
         Assert.assertTrue(description.getText().contains(ticket.getDescription()));
         // todo: добавить реализацию метода
     }
