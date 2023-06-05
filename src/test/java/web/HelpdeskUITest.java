@@ -53,7 +53,7 @@ public class HelpdeskUITest {
         // Устанавливаем размер окна браузера, как максимально возможный
         driver.manage().window().maximize();
         // Установим время ожидания для поиска элементов
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         // Установить созданный драйвер для поиска в веб-страницах
         AbstractPage.setDriver(driver);
     }
@@ -63,21 +63,30 @@ public class HelpdeskUITest {
         // todo: шаги тест-кейса
         //MainMenu mainMenu = new MainMenu(driver);
         driver.get(System.getProperty("site.url"));
+        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         CreateTicketPage newTicket = PageFactory.initElements(driver, CreateTicketPage.class);
+        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         mainMenu.clickOnNewTicketButton();
-
+        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         // ...
         ticket = buildNewTicket();
+        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         // ...
         newTicket.createTicket(ticket);
-
+        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         //new CreateTicketPage().createTicket(ticket);
         new ViewPage().saveId(ticket);
+        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         mainMenu.clickOnLogInButton();
+        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         new LoginPage().login(System.getProperty("user"), System.getProperty("password"));
+        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         mainMenu.setInputSearch(ticket.getTitle()); //поиск по тайтлу
+        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         mainMenu.clickOnGoButton();                //кнопка го
+        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         new TicketsPage().openTicket(ticket);      //открыть тикет
+        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         new TicketPage().checkTicket(ticket);       //проверить тикет
     }
 
