@@ -5,6 +5,7 @@ import io.qameta.allure.Step;
 import models.Ticket;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -28,7 +29,7 @@ public class HelpdeskUITest {
         loadProperties();
         setupDriver();
         System.setProperty("web-driver.chrome.driver", System.getProperty("webdriver.chrome.driver"));
-        driver.get(System.getProperty("site.url"));
+       // driver.get(System.getProperty("site.url"));
         mainMenu = new MainMenu(driver);
         String user = System.getProperty("user");
         String password = System.getProperty("password");
@@ -61,11 +62,16 @@ public class HelpdeskUITest {
     public void createTicketTest() {
         // todo: шаги тест-кейса
         //MainMenu mainMenu = new MainMenu(driver);
+        driver.get(System.getProperty("site.url"));
+        CreateTicketPage newTicket = PageFactory.initElements(driver, CreateTicketPage.class);
         mainMenu.clickOnNewTicketButton();
+
         // ...
         ticket = buildNewTicket();
         // ...
-        new CreateTicketPage().createTicket(ticket);
+        newTicket.createTicket(ticket);
+
+        //new CreateTicketPage().createTicket(ticket);
         new ViewPage().saveId(ticket);
         mainMenu.clickOnLogInButton();
         new LoginPage().login(System.getProperty("user"), System.getProperty("password"));
