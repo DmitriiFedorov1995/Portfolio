@@ -81,7 +81,7 @@ public class HelpdeskUITest {
         return ticket;
     }
 
-    //@AfterTest
+    @AfterTest
     public void close() {
         if (driver != null) {
             // Закрываем одно текущее окно браузера
