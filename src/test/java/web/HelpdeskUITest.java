@@ -68,7 +68,7 @@ public class HelpdeskUITest {
         mainMenu.setInputSearch(ticket.getTitle()); //поиск по тайтлу
         mainMenu.clickOnGoButton();                //кнопка го
         ticketsPage.openTicket(ticket);
-        //new TicketPage().checkTicket(ticket);//открыть тикет
+        new TicketPage().checkTicket(ticket);//открыть тикет
     }
 
     private Ticket buildNewTicket() {

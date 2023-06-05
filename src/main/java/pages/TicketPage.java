@@ -22,17 +22,18 @@ public class TicketPage extends HelpdeskBasePage {
 
     private WebElement title= driver.findElement(By.xpath("/html/body/div[1]/div/div/div[1]/div/div/table/thead/tr/th/h3"));
   //  private WebElement queue = driver.findElement(By.xpath("//th[@colspan=\"4\"]/h3/text()/following::text()"));
-    private WebElement email = driver.findElement(By.xpath("/html/body/div[1]/div/div/div[1]/div/div/table/thead/tr/th"));
+    private WebElement email = driver.findElement(By.xpath("/html/body/div[1]/div/div/div[1]/div/div/table/tbody/tr[2]/td[2]"));
     private WebElement priority = driver.findElement(By.xpath("//*[@id=\"content-wrapper\"]/div/div[1]/div/div/table/tbody/tr[3]/td[1]"));
     private WebElement description = driver.findElement(By.xpath("//*[@id=\"ticket-description\"]/p"));
     //th[@colspan="4"]/h3/text()/text()
     @Step("Проверить значение полей на странице тикета")
     public void checkTicket(Ticket ticket) {
+        String mail = email.getText();
         //Assert.assertTrue(dueDate.getText().contains(ticket.getDue_date()));
         Assert.assertTrue(title.getText().contains(ticket.getTitle()));
        // Assert.assertTrue(queue.getText().contains(String.valueOf(ticket.getQueue())));
-        //Assert.assertTrue(email.getText().contains(ticket.getSubmitter_email()));
-        Assert.assertTrue(priority.getText().contains(String.valueOf(ticket.getPriority())));
+        Assert.assertTrue((mail.contains(ticket.getSubmitter_email())));
+        //Assert.assertTrue(priority.getText().contains(String.valueOf(ticket.getPriority())));
         Assert.assertTrue(description.getText().contains(ticket.getDescription()));
         // todo: добавить реализацию метода
     }
