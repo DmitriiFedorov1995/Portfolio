@@ -57,10 +57,10 @@ public class HelpdeskUITest {
         String password = System.getProperty("password");
         MainMenu mainMenu = new MainMenu(driver);
         TicketsPage ticketsPage = new TicketsPage();
+        new MainMenu(driver).clickOnNewTicketButton();
         // ...
         ticket = buildNewTicket();
         // ...
-        new MainMenu(driver).clickOnNewTicketButton();
         new CreateTicketPage().createTicket(ticket);
         new ViewPage().saveId(ticket);
         mainMenu.clickOnLogInButton();
