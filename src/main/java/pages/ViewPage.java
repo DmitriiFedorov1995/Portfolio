@@ -58,7 +58,7 @@ public class ViewPage extends HelpdeskBasePage {
         ExpectedCondition<WebElement> condition = ExpectedConditions.visibilityOfElementLocated(captionLocator);
 
         // поиск с ожиданием по условию
-        WebElement ticketTitle = driver.findElement(captionLocator);//new WebDriverWait(driver, Duration.ZERO).until(condition);
+        WebElement ticketTitle = driver.findElement(captionLocator); //new WebDriverWait(driver, Duration.ZERO).until(condition);
         return ticketTitle.getText();
     }
 
