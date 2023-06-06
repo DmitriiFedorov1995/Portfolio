@@ -43,7 +43,6 @@ public class ViewPage extends HelpdeskBasePage {
     @Step("Проверить значение полей на карточке тикета")
     public ViewPage checkTicket(Ticket ticket) {
         Assert.assertTrue(description.getText().contains(ticket.getDescription()));
-       // ticket.setTitle(getTicketTitle());
         saveId(ticket);// todo: добавить проверки
         return this;
     }
