@@ -33,7 +33,7 @@ public class TicketPage extends HelpdeskBasePage {
         String strQueue = queueNew.getText();
         String strPriority = priority.getText();
         String asPriority = Dictionaries.getPriority(ticket.getPriority());
-        //Assert.assertTrue(dueDate.getText().contains(ticket.getDue_date()));
+       //Assert.assertTrue(dueDate.getText().contains(ticket.getDue_date()));
         Assert.assertTrue(title.getText().contains(ticket.getTitle()));
         Assert.assertTrue(strQueue.contains(Dictionaries.getQueue(ticket.getQueue())));
         Assert.assertTrue((mail.contains(ticket.getSubmitter_email())));

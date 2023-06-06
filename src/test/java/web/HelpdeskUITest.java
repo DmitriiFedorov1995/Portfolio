@@ -83,7 +83,7 @@ public class HelpdeskUITest {
 
         Ticket ticket = new Ticket();
         // todo: заполнить поля тикета
-        ticket.setTitle("Немануальный тест2");
+        ticket.setTitle("немануальный тест3");
         ticket.setDescription("Тестовый текст");
         ticket.setDue_date("1232-08-23 14:45:22");
         ticket.setSubmitter_email("erre@rere.trt");
