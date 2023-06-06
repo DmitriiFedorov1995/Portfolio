@@ -19,7 +19,7 @@ public class HelpdeskUITest {
     private WebDriver driver;
     private Ticket ticket;
 
-    private MainMenu mainMenu;
+   // private MainMenu mainMenu;
 
     public HelpdeskUITest() {
     }
@@ -30,7 +30,7 @@ public class HelpdeskUITest {
         setupDriver();
         System.setProperty("web-driver.chrome.driver", System.getProperty("webdriver.chrome.driver"));
        // driver.get(System.getProperty("site.url"));
-        mainMenu = new MainMenu(driver);
+        //mainMenu = new MainMenu(driver);
         String user = System.getProperty("user");
         String password = System.getProperty("password");
 
@@ -49,7 +49,6 @@ public class HelpdeskUITest {
     private void setupDriver() {
         // Создание экземпляра драйвера
         driver = new ChromeDriver();
-
         // Устанавливаем размер окна браузера, как максимально возможный
         driver.manage().window().maximize();
         // Установим время ожидания для поиска элементов
@@ -61,32 +60,21 @@ public class HelpdeskUITest {
     @Test
     public void createTicketTest() {
         // todo: шаги тест-кейса
-        //MainMenu mainMenu = new MainMenu(driver);
+        MainMenu mainMenu = new MainMenu(driver);
         driver.get(System.getProperty("site.url"));
-        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         CreateTicketPage newTicket = PageFactory.initElements(driver, CreateTicketPage.class);
-        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         mainMenu.clickOnNewTicketButton();
-        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         // ...
         ticket = buildNewTicket();
-        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         // ...
         newTicket.createTicket(ticket);
-        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         //new CreateTicketPage().createTicket(ticket);
         new ViewPage().saveId(ticket);
-        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         mainMenu.clickOnLogInButton();
-        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         new LoginPage().login(System.getProperty("user"), System.getProperty("password"));
-        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         mainMenu.setInputSearch(ticket.getTitle()); //поиск по тайтлу
-        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         mainMenu.clickOnGoButton();                //кнопка го
-        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         new TicketsPage().openTicket(ticket);      //открыть тикет
-        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         new TicketPage().checkTicket(ticket);       //проверить тикет
     }
 

@@ -12,7 +12,7 @@ import org.testng.Assert;
 import java.util.concurrent.TimeUnit;
 //import org.testng.Assert;
 
-//import java.time.Duration;
+import java.time.Duration;
 
 /** Страница просмотра карточки тикета (неавторизированный пользователь) */
 public class ViewPage extends HelpdeskBasePage {
@@ -59,7 +59,7 @@ public class ViewPage extends HelpdeskBasePage {
         ExpectedCondition<WebElement> condition = ExpectedConditions.visibilityOfElementLocated(captionLocator);
 
         // поиск с ожиданием по условию
-        WebElement ticketTitle = driver.findElement(captionLocator); //new WebDriverWait(driver, Duration.ZERO).until(condition);
+        WebElement ticketTitle = new WebDriverWait(driver, Duration.ZERO).until(condition); //driver.findElement(captionLocator); //
         return ticketTitle.getText();
     }
 
