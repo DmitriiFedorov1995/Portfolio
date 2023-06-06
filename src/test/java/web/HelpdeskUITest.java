@@ -30,8 +30,6 @@ public class HelpdeskUITest {
         loadProperties();
         setupDriver();
         System.setProperty("web-driver.chrome.driver", System.getProperty("webdriver.chrome.driver"));
-       // driver.get(System.getProperty("site.url"));
-        //mainMenu = new MainMenu(driver);
         String user = System.getProperty("user");
         String password = System.getProperty("password");
 
