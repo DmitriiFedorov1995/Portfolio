@@ -103,7 +103,7 @@ public class CreateTicketPage extends HelpdeskBasePage {
        setInputProblem(ticket.getTitle());
        new Select(selectQueue).selectByIndex(ticket.getQueue());
         describe.sendKeys(ticket.getDescription());
-        new Select(priority).selectByIndex(ticket.getPriority());
+        new Select(priority).selectByIndex(ticket.getPriority()-1);
         dueOnButton.sendKeys(ticket.getDue_date());
         emailAdress.sendKeys(ticket.getSubmitter_email());
         clickOnSubmitButton();
