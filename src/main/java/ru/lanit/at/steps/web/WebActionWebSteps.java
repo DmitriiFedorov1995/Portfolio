@@ -7,9 +7,13 @@ import io.cucumber.java.ru.Если;
 import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Когда;
 import ru.lanit.at.actions.WebActions;
+import ru.lanit.at.pages.TicketPage;
+import ru.lanit.at.pages.TicketsPage;
 import ru.lanit.at.utils.Sleep;
 import ru.lanit.at.utils.web.pagecontext.PageManager;
+import org.openqa.selenium.WebElement;
 
+import java.io.File;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -36,6 +40,16 @@ public class WebActionWebSteps extends AbstractWebSteps {
         LOGGER.info("клик на элемент по тексту '{}'", text);
     }
 
+    @Когда("найти элемент по значению {string} и кликнуть")
+    public void clickElementWithValue(String key) {
+        $(Selectors.byText((String) getStorage().get(key)))
+                .shouldBe(Condition.visible)
+                .click();
+        LOGGER.info("клик на элемент по тексту '{}'", key);
+    }
+
+
+
     @Если("кликнуть на элемент {string}")
     public void clickOnElement(String elementName) {
         SelenideElement element = pageManager
@@ -45,6 +59,13 @@ public class WebActionWebSteps extends AbstractWebSteps {
                 .shouldBe(Condition.visible, Duration.ofSeconds(10))
                 .click();
         LOGGER.info("клик на элемент '{}'", elementName);
+    }
+
+    @Если("кликнуть на элемент списке со значением {string}")
+    public void clickOnID (String key){
+        String id = (String) getStorage().get(key);
+        TicketsPage.openTicket(id);
+        LOGGER.info("клик на id '{}'", id);
     }
 
     @Если("установить чекбокс на элементе {string}")
@@ -150,5 +171,28 @@ public class WebActionWebSteps extends AbstractWebSteps {
                 .getElement(elementName)
                 .shouldBe(Condition.visible)
                 .clear();
+    }
+
+    @Если("извлечь из поля {string} значение id и сохранить как {string}")
+    public  void saveId (String field, String key){
+        SelenideElement fieldElement = pageManager
+                .getCurrentPage()
+                .getElement(field);
+        String elementValue = fieldElement
+                .shouldBe(Condition.visible, Duration.ofSeconds(60))
+                .getText();
+        String newID = elementValue.substring(elementValue.indexOf("-")+1,
+                elementValue.indexOf("]"));
+        saveValueInStorage(key, newID);
+        LOGGER.info("значение '{}' сохранено под именем '{}'", newID, key);
+    }
+    @Когда("загрузить файл {string}")
+    public void uploadFile(String path){
+        File file = TicketPage.getInput().uploadFile(new File(path));
+    }
+
+    @Когда("выбрать из меню {string}")
+    public void choiseName(String name){
+        TicketsPage.choiseSavedQuery(name);
     }
 }
